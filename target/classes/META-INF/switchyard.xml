@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><sy:switchyard xmlns:sy="urn:switchyard-config:switchyard:2.0" xmlns="urn:switchyard-config:switchyard:2.0" xmlns:bean="urn:switchyard-component-bean:config:2.0" xmlns:resteasy="urn:switchyard-component-resteasy:config:2.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="jaxrs-a" targetNamespace="urn:com.example.switchyard:jaxrs-a:1.0">
+    <sca:composite name="jaxrs-a" targetNamespace="urn:com.example.switchyard:jaxrs-a:1.0">
+        <sca:service name="Test" promote="TestBean/Test">
+            <sca:interface.java interface="com.example.switchyard.jaxrs_a.Test"/>
+            <resteasy:binding.rest name="rest1">
+                <resteasy:interfaces>com.example.switchyard.jaxrs_a.TestResource</resteasy:interfaces>
+                <resteasy:contextPath>test</resteasy:contextPath>
+            </resteasy:binding.rest>
+        </sca:service>
+        <sca:component name="TestBean">
+            <bean:implementation.bean class="com.example.switchyard.jaxrs_a.TestBean"/>
+            <sca:service name="Test">
+                <sca:interface.java interface="com.example.switchyard.jaxrs_a.Test"/>
+            </sca:service>
+        </sca:component>
+    </sca:composite>
+</sy:switchyard>
