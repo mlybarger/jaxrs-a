@@ -2,4 +2,5 @@ Manifest-Version: 1.0
 Built-By: lybama01
 Build-Jdk: 1.8.0_91
 Created-By: Maven Integration for Eclipse
+Logging-Profile: JAXRS
 

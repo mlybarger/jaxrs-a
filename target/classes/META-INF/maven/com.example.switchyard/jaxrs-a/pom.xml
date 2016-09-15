@@ -115,6 +115,16 @@
           </scannerClassNames>
         </configuration>
       </plugin>
+	<plugin>
+		<artifactId>maven-jar-plugin</artifactId>
+		<configuration>
+			<archive>
+				<manifestEntries>
+					<Logging-Profile>JAXRS</Logging-Profile>
+				</manifestEntries>
+			</archive>
+		</configuration>
+	</plugin>
     </plugins>
   </build>
 </project>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sy:switchyard xmlns:sy="urn:switchyard-config:switchyard:2.0" xmlns="urn:switchyard-config:switchyard:2.0" xmlns:bean="urn:switchyard-component-bean:config:2.0" xmlns:resteasy="urn:switchyard-component-resteasy:config:2.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="jaxrs-a" targetNamespace="urn:com.example.switchyard:jaxrs-a:1.0">
+<?xml version="1.0" encoding="UTF-8"?><sy:switchyard xmlns:sy="urn:switchyard-config:switchyard:2.0" xmlns="urn:switchyard-config:switchyard:2.0" xmlns:bean="urn:switchyard-component-bean:config:2.0" xmlns:camel="urn:switchyard-component-camel:config:2.0" xmlns:resteasy="urn:switchyard-component-resteasy:config:2.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="jaxrs-a" targetNamespace="urn:com.example.switchyard:jaxrs-a:1.0">
     <sca:composite name="jaxrs-a" targetNamespace="urn:com.example.switchyard:jaxrs-a:1.0">
         <sca:service name="Test" promote="TestBean/Test">
             <sca:interface.java interface="com.example.switchyard.jaxrs_a.Test"/>
@@ -11,6 +11,17 @@
             <bean:implementation.bean class="com.example.switchyard.jaxrs_a.TestBean"/>
             <sca:service name="Test">
                 <sca:interface.java interface="com.example.switchyard.jaxrs_a.Test"/>
+            </sca:service>
+            <sca:reference name="Route">
+                <sca:interface.java interface="com.example.switchyard.jaxrs_a.Route"/>
+            </sca:reference>
+        </sca:component>
+        <sca:component name="CamelServiceRoute">
+            <camel:implementation.camel>
+                <camel:java class="com.example.switchyard.jaxrs_a.CamelServiceRoute"/>
+            </camel:implementation.camel>
+            <sca:service name="Route">
+                <sca:interface.java interface="com.example.switchyard.jaxrs_a.Route"/>
             </sca:service>
         </sca:component>
     </sca:composite>
